@@ -1,0 +1,26 @@
+https://github.com/forgamesnsr-code/It-service-desk
+лаб1:
+
+cd C:\Users\maybn\Desktop\it-service-desk\frontend
+npm start
+лаб2:
+
+cd C:\Users\maybn\Desktop\it-service-desk
+backend\.venv\Scripts\activate.bat
+cd backend
+py -m flask --app app:create_app run --debug --port 5000
+
+Проверка ззапросов 
+cd C:\Users\maybn\Desktop\it-service-desk
+backend\.venv\Scripts\activate.bat
+
+python tools/request.py GET /api/health
+python tools/request.py GET /api/tickets
+python tools/request.py GET "/api/tickets?scope=open"
+python tools/request.py GET "/api/tickets?status=new"
+python tools/request.py GET "/api/tickets?q=КОМПЬЮТЕР"
+python tools/request.py GET "/api/tickets?status=open"
+python tools/request.py GET /api/tickets/999
+python tools/request.py POST /api/tickets --data requests/create-ticket.json
+python tools/request.py PATCH /api/tickets/4 --data requests/update-ticket.json
+python tools/request.py DELETE /api/tickets/4
